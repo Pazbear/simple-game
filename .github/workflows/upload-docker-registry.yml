@@ -33,7 +33,7 @@ jobs:
       uses: docker/login-action@v1
       with:
           registry: ghcr.io
-          username: $OWNER_LC
+          username: ${{ env.OWNER_LC }}
           password: ${{ secrets.CR_PAT }}
       env:
           OWNER_LC: ${{ env.OWNER_LC }}
@@ -44,7 +44,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/$OWNER_LC/whatisthissong:latest
+          tags: ghcr.io/${{ env.OWNER_LC }}/whatisthissong:latest
           build-args: |
             commit_id=${{ github.event.head_commit.id }}
       env:
