@@ -1,4 +1,4 @@
-module whatisthissong
+module simple-game
 
 go 1.19
 
